@@ -71,6 +71,9 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .card {
