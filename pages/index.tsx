@@ -41,7 +41,8 @@ export default function Home({ data }: { data: Data }) {
             return (
               <li key={id} className={styles.card}>
                 <a href="#">
-                  <img src={image} alt={`${name} Thumbnail`} />
+                  <Image width={300} height={300} src={image} alt={`${name} Thumbnail`} />
+
                   <h3>{name}</h3>
                 </a>
               </li>
