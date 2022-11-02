@@ -128,15 +128,19 @@ export default function Home({ data }: { data: Data }) {
           {results.map((result: any) => {
             const { id, name, image } = result;
             return (
-              <motion.li key={id} className={styles.card} whileHover={{
-                position: relative,
-                zIndex: 1,
-                backgroundColor: "black",
-                scale: 1.2,
-                transition: {
-                  duration: .2,
-                }
-              }}>
+              <motion.li
+                key={id}
+                className={styles.card}
+                whileHover={{
+                  position: relative,
+                  zIndex: 1,
+                  backgroundColor: "black",
+                  scale: 1.2,
+                  transition: {
+                    duration: 0.2,
+                  },
+                }}
+              >
                 <Link href="/character/[id]" as={`/character/${id}`}>
                   <Image
                     width={250}
