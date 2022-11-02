@@ -112,6 +112,16 @@ export default function Home({ data }: { data: Data }) {
               },
             },
           }}
+          whileHover={{
+            position: "relative",
+            zIndex: 1,
+            backgroundColor: "black",
+            rotate: [0, -5, 2],
+            transition: {
+              type: "spring",
+              bounce: 0.25,
+            },
+          }}
         >
           <h1 className={styles.title}>Wubba Lubba Dub Dub!</h1>
         </motion.div>
@@ -125,9 +135,9 @@ export default function Home({ data }: { data: Data }) {
             position: "relative",
             zIndex: 1,
             backgroundColor: "black",
-            scale: [1, 1.5, 1.1, 1.3],
+            scale: [1, 1.5, 1.3],
             transition: {
-              duration: 0.2,
+              duration: 0.3,
             },
           }}
         >
