@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
@@ -75,7 +76,7 @@ export default function Home({ data }: { data: Data }) {
 
     const { currentTarget = {} } = e;
     const fields = Array.from(currentTarget?.elements);
-    const fieldQuery: any = fields.find((field:any) => field.name === "query");
+    const fieldQuery: any = fields.find((field: any) => field.name === "query");
 
     const value = fieldQuery.value || "";
     const endpoint = `https://rickandmortyapi.com/api/character/?name=${value}`;
@@ -108,16 +109,17 @@ export default function Home({ data }: { data: Data }) {
             const { id, name, image } = result;
             return (
               <li key={id} className={styles.card}>
-                <a href="#">
-                  <Image
-                    width={250}
-                    height={250}
-                    src={image}
-                    alt={`${name} Thumbnail`}
-                  />
-
-                  <h3>{name}</h3>
-                </a>
+                <Link href="/character/[id]" as={`/character/${id}`}>
+                  
+                    <Image
+                      width={250}
+                      height={250}
+                      src={image}
+                      alt={`${name} Thumbnail`}
+                    />
+                    <h3>{name}</h3>
+                
+                </Link>
               </li>
             );
           })}

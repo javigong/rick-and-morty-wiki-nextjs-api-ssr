@@ -115,6 +115,20 @@
   margin-right: 0.5rem;
 }
 
+.profile {
+  display: flex;
+  margin-top: 2em;
+}
+
+.profileImage {
+  margin-right: 2em;
+}
+
+.back div {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -130,6 +144,15 @@
   .search button {
     width: 100%;
   }
+}
+
+.profile {
+  flex-direction: column;
+}
+
+.profileImage {
+  min-width: 100%;
+  margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {
