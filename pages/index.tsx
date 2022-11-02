@@ -18,11 +18,12 @@ export async function getServerSideProps() {
 type Data = {
   [key: string | number]: string | [] | {} | null | undefined | Data;
   results: Results[];
-  info: { next: string };
+  info: { next: string; current: string };
   data: {};
   id: number;
   name: string;
   image: string;
+  current: string;
 };
 
 type Results = {
@@ -32,17 +33,8 @@ type Results = {
 export default function Home({ data }: { data: Data }) {
   const { info, results: defaultResults = [] } = data;
   const [results, setResults] = useState(defaultResults);
-  const [page, setPage] = useState({ ...info, current: defaultEndpoint });
+  const [page, setPage] = useState<any>({ ...info, current: defaultEndpoint });
   const { current } = page;
-
-  function handleLoadMore() {
-    setPage((prev) => {
-      return {
-        ...prev,
-        current: page?.next,
-      };
-    });
-  }
 
   useEffect(() => {
     if (current === defaultEndpoint) return;
@@ -69,6 +61,30 @@ export default function Home({ data }: { data: Data }) {
     request();
   }, [current]);
 
+  function handleLoadMore() {
+    setPage((prev: any) => {
+      return {
+        ...prev,
+        current: page?.next,
+      };
+    });
+  }
+
+  function handleOnSubmitSearch(e: any) {
+    e.preventDefault();
+
+    const { currentTarget = {} } = e;
+    const fields = Array.from(currentTarget?.elements);
+    const fieldQuery: any = fields.find((field:any) => field.name === "query");
+
+    const value = fieldQuery.value || "";
+    const endpoint = `https://rickandmortyapi.com/api/character/?name=${value}`;
+
+    setPage({
+      current: endpoint,
+    });
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -81,6 +97,11 @@ export default function Home({ data }: { data: Data }) {
         <h1 className={styles.title}>Wubba Lubba Dub Dub!</h1>
 
         <p className={styles.description}>Rick and Morty Character Wiki</p>
+
+        <form className="search" onSubmit={handleOnSubmitSearch}>
+          <input name="query" type="search" />
+          <button>Search</button>
+        </form>
 
         <ul className={styles.grid}>
           {results.map((result: any) => {

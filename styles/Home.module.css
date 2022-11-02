@@ -111,10 +111,24 @@
   margin-left: 0.5rem;
 }
 
+.search input {
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .search input {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .search input,
+  .search button {
+    width: 100%;
   }
 }
 
