@@ -132,7 +132,7 @@ export default function Home({ data }: { data: Data }) {
                 key={id}
                 className={styles.card}
                 whileHover={{
-                  position: relative,
+                  position: "relative",
                   zIndex: 1,
                   backgroundColor: "black",
                   scale: 1.2,
