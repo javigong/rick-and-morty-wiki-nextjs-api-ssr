@@ -2,6 +2,8 @@
 
 Web app that serves a basic wiki for Rick and Morty characters, with a dynamic API and server side rendering.
 
+[Deployed to Vercel](https://rick-and-morty-wiki-nextjs-api-ssr.vercel.app/)
+
 ## Features included
 
 - A list of characters on the front page
