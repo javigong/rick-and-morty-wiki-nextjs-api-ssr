@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { relative } from "path";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
@@ -135,7 +134,8 @@ export default function Home({ data }: { data: Data }) {
                   position: "relative",
                   zIndex: 1,
                   backgroundColor: "black",
-                  scale: 1.2,
+                  scale: [1, 1.4, 1.2],
+                  rotate: [0, 10, -10, 0],
                   transition: {
                     duration: 0.2,
                   },
