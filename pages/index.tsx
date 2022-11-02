@@ -118,10 +118,22 @@ export default function Home({ data }: { data: Data }) {
 
         <p className={styles.description}>Rick and Morty Character Wiki</p>
 
-        <form className="search" onSubmit={handleOnSubmitSearch}>
+        <motion.form
+          className="search"
+          onSubmit={handleOnSubmitSearch}
+          whileHover={{
+            position: "relative",
+            zIndex: 1,
+            backgroundColor: "black",
+            scale: [1, 1.5, 1.1, 1.3],
+            transition: {
+              duration: 0.2,
+            },
+          }}
+        >
           <input name="query" type="search" />
           <button>Search</button>
-        </form>
+        </motion.form>
 
         <ul className={styles.grid}>
           {results.map((result: any) => {
